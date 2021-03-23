@@ -1,11 +1,12 @@
-let map = {};
-let count = 0;
-for (let num of nums) {
-  if (map[num]) {
-    count += map[num];
-    map[num] += 1;
-  } else {
-    map[num] = 1;
-  }
-}
-return count;
+import { applyMiddleware, createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import {} from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers/RootReducer";
+
+const Store = createStore(
+  rootReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
+
+export default Store;
